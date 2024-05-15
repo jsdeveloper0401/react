@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Hero from "./assets/hero-img.png";
 import Logo from "./assets/logo.png";
 import Pretty from "./assets/pretty.png";
@@ -8,11 +8,11 @@ import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-
-
+import { IoMdCloseCircle } from "react-icons/io";
 
 
 const LandingPage = () => {
+    const [count, setCount] = useState(false);
 
     return (
         <>
@@ -41,12 +41,46 @@ const LandingPage = () => {
                                     Contact
                                 </a>
                             </li>
-                            <li className="nav__item">
-                                <button className="toggle">
-                                    <RxHamburgerMenu />
-                                </button>
-                            </li>
+                            <li className="nav__item"></li>
                         </ul>
+                        <button
+                            className="toggle"
+                            onClick={() => setCount(!count)}>
+                            <RxHamburgerMenu />
+                        </button>
+                        <div className="box">
+                            {count ? (
+                                <>
+                                    <div>
+                                        <ul class="open-navbar-list">
+                                            <li class="open-navbar-item">
+                                                <a
+                                                    href="#"
+                                                    class="open-navbar-link">
+                                                    Works
+                                                </a>
+                                            </li>
+                                            <li class="open-navbar-item">
+                                                <a
+                                                    href="#"
+                                                    class="open-navbar-link">
+                                                    Blog
+                                                </a>
+                                            </li>
+                                            <li class="open-navbar-item">
+                                                <a
+                                                    href="#"
+                                                    class="open-navbar-link">
+                                                    Contact
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </>
+                            ) : (
+                                <></>
+                            )}
+                        </div>
                     </div>
                 </nav>
             </header>
@@ -124,7 +158,11 @@ const LandingPage = () => {
                         <h4>Featured works</h4>
                         <div className="feature__row">
                             <div className="feature__row-item">
-                                <img src={Pretty} alt="Design dashboard" className="feature-img"/>
+                                <img
+                                    src={Pretty}
+                                    alt="Design dashboard"
+                                    className="feature-img"
+                                />
                                 <div className="dashboard">
                                     <h3>Designing Dashboards</h3>
                                     <div className="dash__desc">
@@ -141,7 +179,11 @@ const LandingPage = () => {
                                 </div>
                             </div>
                             <div className="feature__row-item">
-                                <img src={Malaya} alt="Design dashboard" className="feature-img"/>
+                                <img
+                                    src={Malaya}
+                                    alt="Design dashboard"
+                                    className="feature-img"
+                                />
                                 <div className="dashboard">
                                     <h3>Vibrant Portraits of 2020</h3>
                                     <div className="dash__desc">
@@ -158,7 +200,11 @@ const LandingPage = () => {
                                 </div>
                             </div>
                             <div className="feature__row-item">
-                                <img src={Logo} alt="Design dashboard" className="feature-img"/>
+                                <img
+                                    src={Logo}
+                                    alt="Design dashboard"
+                                    className="feature-img"
+                                />
                                 <div className="dashboard">
                                     <h3>36 Days of Malayalam type</h3>
                                     <div className="dash__desc">
